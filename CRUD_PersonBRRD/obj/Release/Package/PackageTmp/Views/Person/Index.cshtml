@@ -1,0 +1,51 @@
+﻿@model List<CRUD_PersonBRRD.Models.ViewModels.PersonViewModel>
+<link href="~/Content/style.css" type="text/css" rel="stylesheet" />
+
+<div class="Text">
+    <h1>Test BanReservas Elian Martinez</h1><br />
+</div>
+
+    <div class="col-md-11">
+        <div class="card shadow">
+            <div class="card-body">
+                
+                <center>
+                    <h3>Listado de personas</h3>
+
+
+                    @*<hr>*@
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Elemento in Model)
+                            {
+                                <tr>
+                                    <td>@Elemento.Id</td>
+                                    <td>@Elemento.Name</td>
+                                    <td>@Elemento.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <a class="btn btn-success" href="~/Person/Update/@Elemento.Id">Actualizar </a> l
+                                        <a onclick="myfunction()" class="btn btn-danger" href="~/Person/Delete/@Elemento.Id">Eliminar </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function myfunction() {
+        alert("Registro Eliminado");
+    }
+    </script>

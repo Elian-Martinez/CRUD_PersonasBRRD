@@ -1,0 +1,49 @@
+﻿@model CRUD_PersonBRRD.Models.ViewModels.PersonViewModel
+@{
+    ViewBag.Title = "Update";
+}
+
+@using (Html.BeginForm("Update", "Person", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Modificar Registros</h3>
+            <div>
+                @Html.Label("Codigo: ")
+                @Html.TextBoxFor(d => d.Id, "", new { @class = "form-control" })
+                
+            </div>
+            <div>
+                @Html.Label("Nombre Completo: ")
+                @Html.TextBoxFor(d => d.Name, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Name, "", new { @class = "red" })
+
+            </div>
+            <div>
+                <br /> @Html.Label("Fecha Nacimiento:")
+                @Html.EditorFor(d => d.DateOfBirth, "", new { @class = "form-control", @type = "date" })
+                @Html.ValidationMessageFor(d => d.DateOfBirth, "", new { @class = "red" })<br />
+            </div>
+            <div>
+                <br /><input value="Guardar Cambios" class="btn btn-success" type="submit" />
+            </div>
+        </div>
+    </div>
+    @*<div class="registrar">
+            <div class="col-md-12">
+                @Html.HiddenFor(d => d.Id);
+                <div>
+                    @Html.LabelFor(d => d.Name)
+                    @Html.TextBoxFor(d => d.Name, "", new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.LabelFor(d => d.DateOfBirth)<br />
+                    @Html.EditorFor(d => d.DateOfBirth, "", new { @class = "form-control" })
+                </div>
+
+                <div style="text-align:right">
+                    <input value="Save" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+        </div>*@
+}

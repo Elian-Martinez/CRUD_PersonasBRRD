@@ -1,0 +1,67 @@
+﻿@model CRUD_PersonBRRD.Models.ViewModels.PersonViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "Person", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Agregar Registro</h3>
+            <div>
+                @Html.Label("Nombre Completo: ")
+                @Html.TextBoxFor(d => d.Name, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Name, "", new { @class = "red" })
+            </div>
+            <div>
+                <br /> 
+                @Html.Label("Fecha Nacimiento:")
+                @Html.EditorFor(d => d.DateOfBirth, "", new { @class = "form-control", @type = "date" })<br />
+                @Html.ValidationMessageFor(d => d.DateOfBirth, "", new { @class = "red" })
+            </div>
+            <div>
+                <br /><input value="Guardar Cambios" class="btn btn-success" type="submit" />
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class=" col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="text-justify">
+                        <div class="table glyphicon-object-align-bottom">
+                            <h1>Agregar Persona</h1>
+                            <form method="post" asp-action="Create">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="text-right">Nombre</label>
+                                    <input asp-for="Name" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DateOfBirth" class="control-label">Fecha de Nacimiento</label>
+                                    <input asp-for="DateOfBirth" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>*@
+
